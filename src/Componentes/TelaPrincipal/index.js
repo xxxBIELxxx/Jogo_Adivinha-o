@@ -17,13 +17,35 @@ const DivApp = styled.div`
 
 function TelaPrincipal(params) {
     const [vez, setVez] = useState('vez_jogador1')
+    const [pontuacaoJgdr1, setPontuacaoJgdr1] = useState(0);
+    const [pontuacaoJgdr2, setPontuacaoJgdr2] = useState(0);
+    const [inicio, setInicio] = useState(true);
+
+    // useEffect(() => {
+    //     if ((vez === 'vez_jogador1') && inicio == false) {
+    //         setPontuacaoJgdr1(prev => prev + 1);
+    //     } else if ((vez === 'vez_jogador2') && inicio == false) {
+    //         setPontuacaoJgdr2(prev => prev + 1);
+    //     }
+    //     setInicio(false);
+    // }, [vez]);
     // console.log(`Vez Tela principal: ${vez}`)
     return(
         <DivApp>
-            <TelaInfoJogadores vez={vez}/>
+            <TelaInfoJogadores 
+            vez={vez}
+            pontuacaoJgdr1={pontuacaoJgdr1}
+            pontuacaoJgdr2={pontuacaoJgdr2}
+            />
             <TelaPerguntas
             vez= {vez}
             setVez={setVez}
+            pontuacaoJgdr1={pontuacaoJgdr1}
+            pontuacaoJgdr2={pontuacaoJgdr2}
+            setPontuacaoJgdr1={setPontuacaoJgdr1}
+            setPontuacaoJgdr2={setPontuacaoJgdr2}
+            inicio={inicio}
+            setInicio={setInicio}
             />
         </DivApp>
     )

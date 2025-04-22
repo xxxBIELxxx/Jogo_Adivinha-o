@@ -1,36 +1,41 @@
 import styled from 'styled-components'
 import { useState, useEffect } from 'react';
-
+import Jogadores from '../Jogadores';   
 
 const DisplayInfo = styled.div`
     position: relative;
     display: block;
+    background-color: #1E1E3F;
+    border-radius: 10px;
     height: auto;
-    width: 100%;
-    border: 1px solid black;
+    width: 70%;
+    margin: 5px;
+    font-weight: 20px;
+`
+
+const DivJogadores = styled.div`
+
+
 `
 
 
-function TelaInfoJogadores(props){
-    const [pontuacaoJgdr1, setPontuacaoJgdr1] = useState(0);
-    const [pontuacaoJgdr2, setPontuacaoJgdr2] = useState(0);
-    const [inicio, setInicio] = useState(true);
+const Tituloh1 = styled.h1`
+    font-size: 20px;
+    opacity: 100%;
+    color: white;
+    margin: 10px;
+`
 
-    useEffect(() => {
-        if ((props.vez === 'vez_jogador1') && inicio == false) {
-            setPontuacaoJgdr1(prev => prev + 1);
-        } else if ((props.vez === 'vez_jogador2') && inicio == false) {
-            setPontuacaoJgdr2(prev => prev + 1);
-        }
-        setInicio(false);
-    }, [props.vez]);
+function TelaInfoJogadores({ vez, pontuacaoJgdr1, pontuacaoJgdr2}) {
+    console.log(vez)
     return(
         <DisplayInfo>
-            <h1>Informações dos Jogadores</h1>
-            <p>Jogador 1</p>
-            <p>Pontuação: {pontuacaoJgdr2}</p>
-            <p>Jogador 2</p>
-            <p>Pontuação: {pontuacaoJgdr1}</p>
+            <Tituloh1>Informações dos Jogadores</Tituloh1>
+            <Jogadores 
+            vez={vez}
+            pontuacaoJgdr1={pontuacaoJgdr1}
+            pontuacaoJgdr2={pontuacaoJgdr2}
+            />
         </DisplayInfo>
     )
 }

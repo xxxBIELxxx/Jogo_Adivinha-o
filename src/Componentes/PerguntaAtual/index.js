@@ -7,7 +7,7 @@ const DivPergunta = styled.div`
     height: 25%;
     width: 95%;
     /* top: 72px; */
-    margin: 20px;
+    margin: 5px;
     align-items: center;
     justify-content: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
